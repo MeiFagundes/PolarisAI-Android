@@ -1,4 +1,4 @@
-package com.mei.polarisai.ui.home
+package com.meifagundes.polarisai.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

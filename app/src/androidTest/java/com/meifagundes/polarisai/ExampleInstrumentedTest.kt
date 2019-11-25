@@ -1,4 +1,4 @@
-package com.mei.polarisai
+package com.meifagundes.polarisai
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

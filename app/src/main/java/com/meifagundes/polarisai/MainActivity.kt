@@ -1,4 +1,4 @@
-package com.mei.polarisai
+package com.meifagundes.polarisai
 
 import android.os.Bundle
 import androidx.navigation.findNavController

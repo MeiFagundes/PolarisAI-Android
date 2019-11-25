@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/queryTxt"
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/responseTxt"
         android:layout_width="380dp"
         android:layout_height="158dp"
         android:layout_marginTop="16dp"
@@ -37,18 +37,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/sendBtn"
         style="@android:style/Widget.Material.ImageButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/ic_menu_send"
+        android:background="@drawable/ic_send"
         android:backgroundTint="@color/colorAccent"
         android:tint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

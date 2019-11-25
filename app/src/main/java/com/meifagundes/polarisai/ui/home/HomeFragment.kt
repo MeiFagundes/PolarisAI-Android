@@ -1,4 +1,4 @@
-package com.mei.polarisai.ui.home
+package com.meifagundes.polarisai.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.mei.polarisai.R
+import com.meifagundes.polarisai.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
