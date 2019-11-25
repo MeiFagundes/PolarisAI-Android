@@ -1,13 +1,13 @@
-package com.example.polarisai.ui.tools
+package com.mei.polarisai.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ToolsViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is tools Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }

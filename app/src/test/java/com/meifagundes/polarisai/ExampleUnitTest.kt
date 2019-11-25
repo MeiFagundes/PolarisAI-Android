@@ -1,4 +1,4 @@
-package com.example.polarisai
+package com.mei.polarisai
 
 import org.junit.Test
 
