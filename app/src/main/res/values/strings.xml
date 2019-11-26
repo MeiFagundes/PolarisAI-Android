@@ -9,4 +9,6 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_settings">Settings</string>
+    <string name="chat_input_hint">Ask me anything...</string>
+    <string name="chat_send_btn">send</string>
 </resources>
