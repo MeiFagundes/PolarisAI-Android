@@ -10,13 +10,26 @@ import com.meifagundes.polarisai.MessageListAdapter
 import com.meifagundes.polarisai.R
 import com.meifagundes.polarisai.model.Message
 import kotlinx.android.synthetic.main.fragment_home.*
-import java.util.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import org.json.JSONObject
+import java.net.URL
 
 class HomeFragment : Fragment() {
 
-    private val messages = listOf(
-        Message("Who are you?", Calendar.getInstance(), 1),
-        Message("I'm the brightest star in the constellation of Ursa Minor, Polaris!", Calendar.getInstance(), 2)
+    private val messages = mutableListOf(
+        Message("Hello there, I'm Polaris! If you want me to help with anything, you only need to ask!",  2),
+        Message(
+"""Try saying:
+    - What’s your name?
+    - Who are you?
+    - What do you do?
+    - Tell me a joke
+    - How are you?
+    - Do you know Siri?
+    - Say something funny
+    - What do you like to do?"""
+                .trimMargin(),  2)
     )
 
     override fun onCreateView(
@@ -32,9 +45,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //this.sendBtn.setOnClickListener {
-        //    setResponse()
-        //}
+        layout_chatbox.bringToFront()
+        separator.bringToFront()
+
+        this.chat_send_btn.setOnClickListener {
+            setResponse()
+        }
 
         message_list.apply {
             // set a LinearLayoutManager to handle Android
@@ -43,22 +59,32 @@ class HomeFragment : Fragment() {
             // set the custom adapter to the RecyclerView
             adapter = MessageListAdapter(messages)
         }
-
-        /*println(activity == null)
-        messageRecycler = message_list as RecyclerView
-        messageAdapter = activity?.let { MessageListAdapter(it, messages) }
-        messageRecycler!!.layoutManager = LinearLayoutManager(activity)*/
-
     }
 
-    /*private fun setResponse(){
-        responseTxt.text = "Awaiting response..."
+    private fun setResponse(){
+        messages.add(Message(chat_input_txtInput.text.toString(),  1))
+
+        showProgressBar()
+
         doAsync {
-            val response = URL("https://polarisai.azurewebsites.net/query/${queryTxt.text}").readText()
+            val response = URL("https://polarisai.azurewebsites.net/query/${chat_input_txtInput.text}").readText()
             val json = JSONObject(response)
             uiThread {
-                responseTxt.text = json["response"].toString()
+                messages.add(Message(json["response"].toString(),  2))
+                message_list.smoothScrollToPosition((message_list.adapter?.itemCount ?: -1))
+
+                hideProgressBar()
             }
         }
-    }*/
+    }
+
+    private fun showProgressBar(){
+        chat_send_btn.visibility = View.GONE
+        chat_progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar(){
+        chat_progressBar.visibility = View.GONE
+        chat_send_btn.visibility = View.VISIBLE
+    }
 }
